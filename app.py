@@ -38,6 +38,7 @@ def addProduct():
     }
 
     products.append(new_product)
+    print("Product received")
     return jsonify({"message": "Product Added Succesfully", "products": products})
 
 #Actualizar datos por ruta
@@ -49,9 +50,11 @@ def editProduct(product_name):
         productFound[0]['name'] = request.json['name']
         productFound[0]['price'] = request.json['price']
         productFound[0]['quantity'] = request.json['quantity']
+        print("Product Update")
         return jsonify({
             "message": "Produc Update",
-            "product": productFound[0]
+            "product": productFound[0],
+            "products" : products
         })
     return jsonify({
         "message": "Product not found"
